@@ -4,8 +4,8 @@ import { GistContext } from "./GistTable";
 import "./GistSearch.css";
 
 function GistSearch() {
-  const [, dispatch] = useContext(GistContext);
-
+  const [state, dispatch] = useContext(GistContext);
+  console.log(state);
   function handleSubmit(event) {
     event.preventDefault();
     getGists(event.target[0].value);
@@ -27,15 +27,21 @@ function GistSearch() {
     }
   }
   return (
-    <form className="search" onSubmit={handleSubmit}>
-      <input
-        placeholder="Enter username"
-        className="search-bar"
-        type="text"
-        name="username"
-      />
-      <input className="submit" type="submit" />
-    </form>
+    <>
+      {state.error && <p className="alert">{state.error}</p>}
+      {state.gists?.length === 0 && (
+        <p className="alert">The user doesn't have any gists!</p>
+      )}
+      <form className="search" onSubmit={handleSubmit}>
+        <input
+          placeholder="Enter username"
+          className="search-bar"
+          type="text"
+          name="username"
+        />
+        <input className="submit" type="submit" />
+      </form>
+    </>
   );
 }
 

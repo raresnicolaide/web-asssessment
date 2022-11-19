@@ -6,7 +6,7 @@ function GistList() {
   const [state] = useContext(GistContext);
   return (
     <div>
-      {state.gists.map((gist) => (
+      {state.gists?.map((gist) => (
         <Gist
           owner={gist.owner}
           key={gist.id}

@@ -10,10 +10,10 @@ function gistReducer(state, action) {
       return { ...state, isLoading: true };
     }
     case "GIST_SUCCESS": {
-      return { ...state, isLoading: false, gists: action.gists };
+      return { ...state, isLoading: false, error: null, gists: action.gists };
     }
     case "GIST_ERROR": {
-      return { ...state, isLoading: false, gists: [], error: action.error };
+      return { ...state, isLoading: false, error: action.error, gists: null };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
@@ -24,7 +24,7 @@ function gistReducer(state, action) {
 function GistProvider({ children }) {
   const [state, dispatch] = useReducer(gistReducer, {
     isLoading: false,
-    gists: [],
+    gists: null,
     error: null,
   });
   const value = [state, dispatch];
