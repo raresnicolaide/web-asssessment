@@ -11,7 +11,12 @@ function Gist({ files, forks }) {
 
     getUsers(forks).then((result) => {
       if (!ignore) {
-        setUsers(result);
+        // to get the last 3 positions in the array
+        setUsers(
+          result.length >= 3
+            ? result.slice(result.length - 3, result.length)
+            : result
+        );
       }
     });
 
