@@ -18,10 +18,10 @@ function GistSearch() {
       const res = await fetch(URL);
       if (res.ok) {
         const data = await res.json();
-        dispatch({ type: "GIST_SUCCESS", gists: data });
+        return dispatch({ type: "GIST_SUCCESS", gists: data });
       }
       const error = await res.json();
-      dispatch({ type: "GIST_ERROR", gists: [], error: error.message });
+      dispatch({ type: "GIST_ERROR", error: error.message });
     } catch (error) {
       dispatch({ type: "GIST_ERROR", error });
     }

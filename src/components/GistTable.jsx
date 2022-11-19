@@ -13,7 +13,7 @@ function gistReducer(state, action) {
       return { ...state, isLoading: false, gists: action.gists };
     }
     case "GIST_ERROR": {
-      return { ...state, isLoading: false, error: action.error };
+      return { ...state, isLoading: false, gists: [], error: action.error };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
