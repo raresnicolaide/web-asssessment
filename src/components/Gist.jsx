@@ -6,7 +6,6 @@ import User from "./User";
 import "./Gist.css";
 
 function Gist({ owner, files, forks, description }) {
-  const mainClass = "gist";
   const [users, setUsers] = useState([]);
   const [openFile, setOpenFile] = useState(null);
 
@@ -51,7 +50,8 @@ function Gist({ owner, files, forks, description }) {
   return (
     <div className="gist-content">
       <div className="name-container">
-        <p className="name"> {`${owner}/`}</p>
+        {/* <p className="name"> {`${owner}/`}</p> */}
+        <User owner={owner} />
         {Object.keys(files).map((name) => (
           <button
             className="button"
@@ -69,7 +69,7 @@ function Gist({ owner, files, forks, description }) {
       <div>
         Users that forked:
         {users.map((user) => (
-          <User key={user.id} user={user} />
+          <User key={user.id} owner={user.owner} />
         ))}
       </div>
       {openFile && (

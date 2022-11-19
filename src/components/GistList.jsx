@@ -4,13 +4,12 @@ import { GistContext } from "./GistTable";
 
 function GistList() {
   const [state] = useContext(GistContext);
-
   return (
     <div>
       {state.gists.map((gist) => {
         return (
           <Gist
-            owner={gist.owner.login}
+            owner={gist.owner}
             key={gist.id}
             files={gist.files}
             forks={gist.forks_url}

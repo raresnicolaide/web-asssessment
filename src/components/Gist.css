@@ -1,0 +1,30 @@
+.gist-content {
+  border: 1px solid #ccc;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.button {
+  margin: 0 5px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: arial, sans-serif;
+  color: #58a6ff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: large;
+}
+.name-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.name {
+  color: #58a6ff;
+  font-weight: 600;
+  font-size: large;
+}
