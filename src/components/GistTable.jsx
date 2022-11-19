@@ -2,7 +2,7 @@ import React, { useReducer, createContext } from "react";
 import GistList from "./GistList";
 import GistSearch from "./GistSearch";
 
-const GistContext = createContext();
+export const GistContext = createContext();
 
 function gistReducer(state, action) {
   switch (action.type) {
