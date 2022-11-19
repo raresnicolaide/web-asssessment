@@ -1,9 +1,7 @@
-import React, { Component } from "react";
+import React from "react";
 
-export class Gist extends Component {
-  render() {
-    return <div>Gist</div>;
-  }
+function Gist() {
+  return <div>Gist</div>;
 }
 
 export default Gist;
