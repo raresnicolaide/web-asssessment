@@ -64,9 +64,9 @@ function Gist({ owner, files, forks, description }) {
           <LanguageTag key={index} language={language} />
         ))}
       </div>
-      <div>Description: {description}</div>
+      <p className="description">{description}</p>
       <div className="fork-container">
-        <p className="fork-title">Last forked by:</p>
+        {users.length > 0 && <p className="fork-title">Last forked by:</p>}
         {users.map((user) => (
           <User key={user.id} owner={user.owner} />
         ))}
