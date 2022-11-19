@@ -3,7 +3,10 @@ import GistContentModal from "./GistContentModal";
 import LanguageTag from "./LanguageTag";
 import User from "./User";
 
+import "./Gist.css";
+
 function Gist({ owner, files, forks, description }) {
+  const mainClass = "gist";
   const [users, setUsers] = useState([]);
   const [openFile, setOpenFile] = useState(null);
 
@@ -46,17 +49,23 @@ function Gist({ owner, files, forks, description }) {
   }
 
   return (
-    <div>
-      <h3>{`${owner}`}</h3>
-      {Object.keys(files).map((name) => (
-        <button key={name} onClick={() => setOpenFile(name)}>
-          {name}
-        </button>
-      ))}
+    <div className="gist-content">
+      <div className="name-container">
+        <p className="name"> {`${owner}/`}</p>
+        {Object.keys(files).map((name) => (
+          <button
+            className="button"
+            key={name}
+            onClick={() => setOpenFile(name)}
+          >
+            {name}/
+          </button>
+        ))}
+        {getDistinctLanguages(files).map((language, index) => (
+          <LanguageTag key={index} language={language} />
+        ))}
+      </div>
       <div>Description: {description}</div>
-      {getDistinctLanguages(files).map((language, index) => (
-        <LanguageTag key={index} language={language} />
-      ))}
       <div>
         Users that forked:
         {users.map((user) => (
