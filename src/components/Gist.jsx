@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import GistContentModal from "./GistContentModal";
 import LanguageTag from "./LanguageTag";
 import User from "./User";
 
 function Gist({ owner, files, forks, description }) {
   const [users, setUsers] = useState([]);
-  console.log(...Object.keys(files));
+  const [openFile, setOpenFile] = useState(null);
+
   useEffect(() => {
     let ignore = false;
     setUsers([]);
@@ -45,7 +47,12 @@ function Gist({ owner, files, forks, description }) {
 
   return (
     <div>
-      <h3>{`${owner}/${Object.keys(files)}`}</h3>
+      <h3>{`${owner}`}</h3>
+      {Object.keys(files).map((name) => (
+        <button key={name} onClick={() => setOpenFile(name)}>
+          {name}
+        </button>
+      ))}
       <div>Description: {description}</div>
       {getDistinctLanguages(files).map((language, index) => (
         <LanguageTag key={index} language={language} />
@@ -56,6 +63,13 @@ function Gist({ owner, files, forks, description }) {
           <User key={user.id} user={user} />
         ))}
       </div>
+      {openFile && (
+        <GistContentModal
+          files={files}
+          name={openFile}
+          setOpenFile={setOpenFile}
+        />
+      )}
     </div>
   );
 }
