@@ -6,14 +6,14 @@ export const GistContext = createContext();
 
 function gistReducer(state, action) {
   switch (action.type) {
-    case "IS_PENDING": {
-      return { ...state, isPending: true };
+    case "IS_LOADING": {
+      return { ...state, isLoading: true };
     }
     case "GIST_SUCCESS": {
-      return { ...state, gists: action.gists };
+      return { ...state, isLoading: false, gists: action.gists };
     }
     case "GIST_ERROR": {
-      return { ...state, error: action.error };
+      return { ...state, isLoading: false, error: action.error };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
