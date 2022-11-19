@@ -1,17 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { GistContext } from "./GistTable";
 
 import "./GistSearch.css";
 
 function GistSearch() {
   const [state, dispatch] = useContext(GistContext);
-  console.log(state);
+  const usernameRef = useRef();
+
   function handleSubmit(event) {
     event.preventDefault();
-    getGists(event.target[0].value);
+    if (event.target[0].value !== usernameRef.current) {
+      getGists(event.target[0].value);
+    }
   }
 
   async function getGists(username) {
+    usernameRef.current = username;
     const URL = `https://api.github.com/users/${username}/gists`;
     try {
       dispatch({ type: "IS_LOADING" });
