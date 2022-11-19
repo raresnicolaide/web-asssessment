@@ -10,10 +10,10 @@ function gistReducer(state, action) {
       return { ...state, isPending: true };
     }
     case "GIST_SUCCESS": {
-      return { ...state, gists: action.payload };
+      return { ...state, gists: action.gists };
     }
     case "GIST_ERROR": {
-      return { ...state, error: action.payload };
+      return { ...state, error: action.error };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
