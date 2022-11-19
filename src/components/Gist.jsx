@@ -50,7 +50,6 @@ function Gist({ owner, files, forks, description }) {
   return (
     <div className="gist-content">
       <div className="name-container">
-        {/* <p className="name"> {`${owner}/`}</p> */}
         <User owner={owner} />
         {Object.keys(files).map((name) => (
           <button

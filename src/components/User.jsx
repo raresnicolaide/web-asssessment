@@ -1,15 +1,13 @@
 import React from "react";
 
+import "./User.css";
+
 function User({ owner }) {
   return (
-    <>
-      <img
-        style={{ borderRadius: "50%", width: "30px", height: "30px" }}
-        src={owner.avatar_url}
-        alt={owner.login}
-      />
-      <span>{owner.login.concat(" ")}</span>
-    </>
+    <div className="username">
+      <img className="avatar" src={owner.avatar_url} alt={owner.login} />
+      <span>{`${owner.login.concat(" ")}/`}</span>
+    </div>
   );
 }
 

@@ -1,0 +1,14 @@
+.username {
+  display: flex;
+  align-items: center;
+  color: #58a6ff;
+  font-weight: 600;
+  font-size: large;
+}
+
+.avatar {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  margin-right: 5px;
+}
