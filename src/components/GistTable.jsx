@@ -1,4 +1,6 @@
 import React, { useReducer, createContext } from "react";
+import GistList from "./GistList";
+import GistSearch from "./GistSearch";
 
 const GistContext = createContext();
 
@@ -30,7 +32,12 @@ function GistProvider({ children }) {
 }
 
 function GistTable() {
-  return <GistProvider>gistTable</GistProvider>;
+  return (
+    <GistProvider>
+      <GistSearch />
+      <GistList />
+    </GistProvider>
+  );
 }
 
 export default GistTable;
