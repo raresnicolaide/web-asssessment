@@ -19,8 +19,18 @@ function gistReducer(state, action) {
   }
 }
 
+function GistProvider({ children }) {
+  const [state, dispatch] = useReducer(gistReducer, {
+    isLoading: false,
+    gists: [],
+    error: null,
+  });
+  const value = [state, dispatch];
+  return <GistContext.Provider value={value}>{children}</GistContext.Provider>;
+}
+
 function GistTable() {
-  return <div>GistTable</div>;
+  return <GistProvider>gistTable</GistProvider>;
 }
 
 export default GistTable;
