@@ -3,7 +3,7 @@ import LanguageTag from "./LanguageTag";
 
 function Gist({ files }) {
   function getDistinctLanguages(files) {
-    let languages = [];
+    const languages = [];
 
     for (const file in files) {
       languages.push(files[file].language);
