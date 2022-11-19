@@ -15,7 +15,7 @@ function LanguageTag({ language }) {
     }
     return colour;
   }
-  const color = generateColor(language);
+  const color = language ? generateColor(language) : null;
   return (
     <span style={{ backgroundColor: `${color}` }} className="tag">
       {language}
