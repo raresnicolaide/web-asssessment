@@ -21,7 +21,7 @@ function GistSearch() {
         dispatch({ type: "GIST_SUCCESS", gists: data });
       }
       const error = await res.json();
-      dispatch({ type: "GIST_ERROR", error: error.message });
+      dispatch({ type: "GIST_ERROR", gists: [], error: error.message });
     } catch (error) {
       dispatch({ type: "GIST_ERROR", error });
     }
