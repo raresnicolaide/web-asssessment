@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import LanguageTag from "./LanguageTag";
+import User from "./User";
 
 function Gist({ files, forks }) {
-  const [users, setUsers] = useState(null);
+  const [users, setUsers] = useState([]);
 
   useEffect(() => {
     let ignore = false;
-    setUsers(null);
+    setUsers([]);
 
     getUsers(forks).then((result) => {
       if (!ignore) {
@@ -42,6 +43,12 @@ function Gist({ files, forks }) {
       {getDistinctLanguages(files).map((language, index) => (
         <LanguageTag key={index} language={language} />
       ))}
+      <div>
+        Users that forked:
+        {users.map((user) => (
+          <User key={user.id} user={user} />
+        ))}
+      </div>
     </div>
   );
 }
