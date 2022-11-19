@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import LanguageTag from "./LanguageTag";
 import User from "./User";
 
-function Gist({ files, forks }) {
+function Gist({ owner, files, forks, description }) {
   const [users, setUsers] = useState([]);
-
+  console.log(...Object.keys(files));
   useEffect(() => {
     let ignore = false;
     setUsers([]);
@@ -45,6 +45,8 @@ function Gist({ files, forks }) {
 
   return (
     <div>
+      <h3>{`${owner}/${Object.keys(files)}`}</h3>
+      <div>Description: {description}</div>
       {getDistinctLanguages(files).map((language, index) => (
         <LanguageTag key={index} language={language} />
       ))}

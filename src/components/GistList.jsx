@@ -8,7 +8,15 @@ function GistList() {
   return (
     <div>
       {state.gists.map((gist) => {
-        return <Gist key={gist.id} files={gist.files} forks={gist.forks_url} />;
+        return (
+          <Gist
+            owner={gist.owner.login}
+            key={gist.id}
+            files={gist.files}
+            forks={gist.forks_url}
+            description={gist.description}
+          />
+        );
       })}
     </div>
   );
