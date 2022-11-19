@@ -8,7 +8,7 @@ function GistList() {
   return (
     <div>
       {state.gists.map((gist) => {
-        return <Gist key={gist.id} />;
+        return <Gist key={gist.id} files={gist.files} />;
       })}
     </div>
   );
