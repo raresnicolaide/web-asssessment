@@ -23,3 +23,10 @@
   flex-direction: row;
   align-items: center;
 }
+.fork-title {
+  font-weight: 600;
+  margin-right: 5px;
+}
+.fork-container {
+  display: flex;
+}

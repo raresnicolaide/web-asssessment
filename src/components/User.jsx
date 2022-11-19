@@ -2,11 +2,13 @@ import React from "react";
 
 import "./User.css";
 
-function User({ owner }) {
+function User({ owner, isAuthor = false }) {
   return (
     <div className="username">
       <img className="avatar" src={owner.avatar_url} alt={owner.login} />
-      <span>{`${owner.login.concat(" ")}/`}</span>
+      <span>{`${
+        isAuthor ? owner.login.concat("/ ") : owner.login.concat(" ")
+      }`}</span>
     </div>
   );
 }

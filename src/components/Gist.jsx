@@ -50,7 +50,7 @@ function Gist({ owner, files, forks, description }) {
   return (
     <div className="gist-content">
       <div className="name-container">
-        <User owner={owner} />
+        <User isAuthor owner={owner} />
         {Object.keys(files).map((name) => (
           <button
             className="button"
@@ -65,8 +65,8 @@ function Gist({ owner, files, forks, description }) {
         ))}
       </div>
       <div>Description: {description}</div>
-      <div>
-        Users that forked:
+      <div className="fork-container">
+        <p className="fork-title">Last forked by:</p>
         {users.map((user) => (
           <User key={user.id} owner={user.owner} />
         ))}
