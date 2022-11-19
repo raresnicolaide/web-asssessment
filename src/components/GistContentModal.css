@@ -8,18 +8,17 @@
   z-index: 4;
 }
 .Modal {
-  max-width: 500px;
+  width: 800px;
   background-color: white;
   position: fixed;
   top: 75px;
   z-index: 5;
-  max-height: calc(100% - 200px);
-  left: calc(50% - 150px);
+  height: calc(100% - 200px);
+  left: calc(50% - 400px);
   display: flex;
   flex-direction: column;
 }
 .ModalHeader {
-  margin-bottom: 20px;
   background-color: rgb(61, 10, 77);
   color: white;
   padding: 10px;
@@ -27,7 +26,5 @@
 
 .ModalContent {
   overflow: auto;
-  min-height: 200px;
-  padding: 0px 40px;
-  padding-bottom: 80px;
+  padding: 20px 40px;
 }

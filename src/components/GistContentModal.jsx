@@ -36,10 +36,10 @@ function GistContentModal({ setOpenFile, files, name }) {
     <>
       <div className="ModalShadow" onClick={close}></div>
       <div className="Modal">
-        <div className="ModalContent">
-          <div className="ModalHeader">{files[name].filename}</div>
+        <header className="ModalHeader">{files[name].filename}</header>
+        <section className="ModalContent">
           <code>{content}</code>
-        </div>
+        </section>
       </div>
     </>,
     document.getElementById("app-modal")
