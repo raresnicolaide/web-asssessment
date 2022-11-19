@@ -29,6 +29,7 @@
 }
 .fork-container {
   display: flex;
+  align-items: center;
 }
 .description {
   margin: 5px 0;
